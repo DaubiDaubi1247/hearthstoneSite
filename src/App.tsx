@@ -1,7 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import HeaderContainer from './components/header/HeaderContainer';
+import MainContainer from './components/main/CardInfoContainer';
 
 function App() {
 
@@ -10,6 +10,7 @@ function App() {
     
     <div className="App">
       <HeaderContainer/>
+      <MainContainer/>
     </div>
   );
 }

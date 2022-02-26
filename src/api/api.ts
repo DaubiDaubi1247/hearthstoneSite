@@ -1,3 +1,4 @@
+import { GetCardT } from './apiT';
 import axios from "axios";
 
 const request = axios.create({
@@ -10,6 +11,8 @@ const request = axios.create({
 
 const cardAPI = {
     getCardByNameOrId(name : string) {
-        return request.get(`/cards/${name}`)
+        return request.get<GetCardT>(`/cards/${name}`)
     }
 }
+
+export default cardAPI
