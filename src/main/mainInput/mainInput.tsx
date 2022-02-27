@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { setInput, setRequestError } from "../../../redux/slices/mainSlice"
-import { getCard } from "../../../redux/thunks/mainThunk"
+import { setInput, setRequestError } from "../../redux/slices/mainSlice"
+import { getCard } from "../../redux/thunks/mainThunk"
 import { PropsT } from "./mainInputT"
 
 
-const MainInput : React.FC<PropsT> = ({dispatch}) => {
+const MainInput : React.FC<PropsT> = ({dispatch,navigate}) => {
+    
     const [userInput, setUserInput] = useState<string>("")
 
     const onChangeEvent = (e : React.FormEvent<HTMLInputElement>) : void => {
@@ -17,6 +18,7 @@ const MainInput : React.FC<PropsT> = ({dispatch}) => {
     }
     const getCards = () => {
         dispatch(getCard(userInput))
+        navigate("/searchCard")
     }
     return (
         <div>

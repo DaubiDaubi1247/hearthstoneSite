@@ -1,13 +1,13 @@
 import logo from '../../../common/img/logo.png'
-import { Logo } from './headerLogoStyles'
+import { Logo, WrapperImg } from './headerLogoStyles'
 
 
 
 const HeaderLogo : React.FC = () => {
     return (
-        <div>
+        <WrapperImg>
             <Logo src={logo} alt=""/>
-        </div>
+        </WrapperImg>
     )
 }
 

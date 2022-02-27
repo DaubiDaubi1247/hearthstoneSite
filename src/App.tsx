@@ -1,16 +1,21 @@
 
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { MainWrapper } from './AppStyles';
+import './AppStyles.ts';
 import HeaderContainer from './components/header/HeaderContainer';
-import MainContainer from './components/main/CardInfoContainer';
+import CardInfoContainer from './components/main/CardInfoContainer';
+import MainContainer from './main/MainInputContainer';
 
 function App() {
-
-  
   return (
-    
     <div className="App">
       <HeaderContainer/>
-      <MainContainer/>
+      <MainWrapper>
+        <MainContainer/>
+          <Routes>
+            <Route path="/searchCard" element={<CardInfoContainer/>}/>
+          </Routes>
+      </MainWrapper>
     </div>
   );
 }
