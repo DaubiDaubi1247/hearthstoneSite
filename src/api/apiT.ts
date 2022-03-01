@@ -7,7 +7,6 @@ export interface CardT {
     name: string
     cardSet:string
     type:string
-    faction:string
     rarity:string
     cost:number
     attack:number
