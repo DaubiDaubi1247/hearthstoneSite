@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { setInput, setRequestError } from "../../redux/slices/mainSlice"
-import { getCard } from "../../redux/thunks/mainThunk"
+import { setInput, setRequestError } from "../../../redux/slices/mainSlice"
+import { getCard } from "../../../redux/thunks/mainThunk"
 import { PropsT } from "./mainInputT"
 
 

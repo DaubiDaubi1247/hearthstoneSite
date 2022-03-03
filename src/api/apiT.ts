@@ -1,6 +1,7 @@
 
 export type GetCardT = Array<CardT>
 
+export type GetAllCardsT = Array<GetCardT>
 
 export interface CardT {
     cardId: string

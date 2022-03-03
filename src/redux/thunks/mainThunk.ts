@@ -15,3 +15,18 @@ export const getCard = createAsyncThunk(
     }    
 )
 
+// export const getAllCards = createAsyncThunk(
+//     "main/getAllCards",
+//     async (_,thunkApi) => {
+//         try {
+//             const response = await cardAPI.getAllCards();
+//             const arr10Cards = [...response.data];
+//             response.data.length = 10
+//             return response.data
+//         } catch (error) {
+//             debugger
+//             return thunkApi.rejectWithValue("Что то пошло не так ...")
+//         }
+//     }
+// )
+

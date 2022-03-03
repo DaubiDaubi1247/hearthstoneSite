@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useAppDispatch } from "../redux/hooks/hooks"
+import { useAppDispatch } from "../../redux/hooks/hooks"
 import MainInput from "./mainInput/mainInput"
 import { MainWrapper } from "./mainStyles"
 

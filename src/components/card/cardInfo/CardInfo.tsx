@@ -37,7 +37,7 @@ const CardInfo: React.FC<CardT> = (props) => {
                </WrapperName>
            <GridWrapper>
                <WrapperImg>
-                   <img src={img}/>
+                   {/* <img src={img}/> */}
                </WrapperImg>
                <WrapperDescription>
                     <DescriptionItem 
