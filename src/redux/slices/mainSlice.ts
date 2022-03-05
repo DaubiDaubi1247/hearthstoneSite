@@ -1,11 +1,11 @@
-import { getCard, getAllCards } from './../thunks/mainThunk';
-import { GetCardT, GetAllCardsT } from './../../api/apiT';
+import { getCard, getInfo } from './../thunks/mainThunk';
+import { GetCardT, GetInfoT } from './../../api/apiT';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { InitialStateT } from "./mainSliceT";
 
 const initialState: InitialStateT = {
     cardsInfo: [],
-    allCardsInfo : [],
+    infoAboutRequests : null,
     userInput : "",
     requestError: null
 }
@@ -28,10 +28,15 @@ const mainSlice = createSlice({
         [getCard.rejected.type]: (state, action: PayloadAction<string>) => {
             state.requestError = action.payload
         },
-        [getAllCards.fulfilled.type]: (state, action: PayloadAction<GetAllCardsT>) => {
-            state.allCardsInfo = action.payload
+        [getInfo.fulfilled.type]: (state, action: PayloadAction<GetInfoT>) => {
+
+            if(action.payload.hasOwnProperty("patch")) delete action.payload["patch"];
+
+            if(action.payload.hasOwnProperty("locales")) delete action.payload["locales"];
+
+            state.infoAboutRequests = action.payload
         },
-        [getAllCards.rejected.type]: (state, action: PayloadAction<string>) => {
+        [getInfo.rejected.type]: (state, action: PayloadAction<string>) => {
             state.requestError = action.payload
         }
     }

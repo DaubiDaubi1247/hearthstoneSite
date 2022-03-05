@@ -4,11 +4,12 @@ import { DescriptionItem, WrapperDescription } from "../../../common/styles/desc
 import { WrapperImg } from "../../../common/styles/img";
 import { Name, WrapperName } from "../../../common/styles/nameStyles";
 import { GridWrapper, WrapperCard } from "./cardInfoStyles";
-
+import emptyImg  from "../../../common/img/emptyImg.png"
 const CardInfo: React.FC<CardT> = (props) => {
     
     const deleteFromStrUselessSymb = (str : string) : string => {
-        return str ? str.replace(/\\n/g," ") : str
+        //удаляем \ ,\n , <b></b> и _
+        return str ? str.replace(/(\\n)|(<\/?b>)|_/g," ") : str
     }
     
     const isValidValue = (value : string | number) : boolean => {
@@ -37,7 +38,7 @@ const CardInfo: React.FC<CardT> = (props) => {
                </WrapperName>
            <GridWrapper>
                <WrapperImg>
-                   {/* <img src={img}/> */}
+                   <img src={img || emptyImg}/>
                </WrapperImg>
                <WrapperDescription>
                     <DescriptionItem 
@@ -91,14 +92,14 @@ const CardInfo: React.FC<CardT> = (props) => {
                             margin={true}
                             visible={isValidValue(attack)}
                         >
-                            <span>attack</span>{attack}
+                            <span>attack {attack}</span>
                         </DescriptionItem>
                         <DescriptionItem 
                             characteristic="inline"
                             margin={true}
                             visible={isValidValue(health)}
                         >
-                            <span>health</span>{health}
+                            <span>health {health}</span>
                         </DescriptionItem>
                     </DescriptionItem>
 
@@ -107,7 +108,7 @@ const CardInfo: React.FC<CardT> = (props) => {
                         margin={false}
                         visible={isValidValue(cost)}
                     >
-                        <span>Cтоимость : </span>{cost} кристалл маны
+                        <span>Cтоимость : </span>{cost} кристаллов маны
                     </DescriptionItem>
                </WrapperDescription>
            </GridWrapper>

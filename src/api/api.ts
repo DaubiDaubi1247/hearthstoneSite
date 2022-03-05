@@ -1,4 +1,4 @@
-import { GetCardT, GetAllCardsT } from './apiT';
+import { GetCardT, GetInfoT } from './apiT';
 import axios from "axios";
 
 const request = axios.create({
@@ -13,10 +13,10 @@ const request = axios.create({
 
 const cardAPI = {
     getCardByNameOrId(name : string) {
-        return request.get<GetCardT>(`/cards/${name}`)
+        return request.get<GetCardT>(`/cards/search/${name}`)
     },
-    getAllCards() {
-        return request.get<GetAllCardsT>('/cards')
+    getInfo() {
+        return request.get<GetInfoT>('/info')
     }
 }
 

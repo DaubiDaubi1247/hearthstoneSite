@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { setInput, setRequestError } from "../../../redux/slices/mainSlice"
 import { getCard } from "../../../redux/thunks/mainThunk"
+import { MainForm } from "./mainInputStyles"
 import { PropsT } from "./mainInputT"
 
 
@@ -17,14 +18,15 @@ const MainInput : React.FC<PropsT> = ({dispatch,navigate}) => {
         dispatch(setRequestError(null))
     }
     const getCards = () => {
+        
         dispatch(getCard(userInput))
         navigate("/searchCard")
     }
     return (
-        <div>
+        <MainForm onSubmit={e => e.preventDefault() }>
             <input type="text" value={userInput} onChange={onChangeEvent} onBlur={onBlurEvent}/>
             <button onClick={getCards}>Найти</button>
-        </div>
+        </MainForm>
     )
 }
 

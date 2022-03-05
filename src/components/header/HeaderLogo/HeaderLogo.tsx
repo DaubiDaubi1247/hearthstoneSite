@@ -6,7 +6,9 @@ import { Logo, WrapperImg } from './headerLogoStyles'
 const HeaderLogo : React.FC = () => {
     return (
         <WrapperImg>
-            <Logo src={logo} alt=""/>
+            <a href="/">
+                <Logo src={logo} alt=""/>
+            </a>
         </WrapperImg>
     )
 }

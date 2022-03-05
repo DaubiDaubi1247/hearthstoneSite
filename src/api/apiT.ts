@@ -1,7 +1,13 @@
 
 export type GetCardT = Array<CardT>
 
-export type GetAllCardsT = Array<GetCardT>
+export interface GetInfoT {
+    [index : string]: Array<string>
+    classes: Array<string>,
+    sets : Array<string>
+    wild : Array<string>
+    races : Array<string>
+}
 
 export interface CardT {
     cardId: string

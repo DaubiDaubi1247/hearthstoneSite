@@ -1,31 +1,38 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks/hooks"
-import { getAllCards } from "../../../redux/thunks/mainThunk"
-import MainContentItem from "./mainContentItem/MainContentItem"
+import { getInfo } from "../../../redux/thunks/mainThunk"
+import { WrapperInfo } from "./mainContentContainerStyles"
+import DropDown from "../../../common/dropDown/DropDown"
+
 
 const MainContentContainer : React.FC = () => {
 
-    const allCardsInfo = useAppSelector(state => state.main.allCardsInfo)
+    const infoAboutRequests = useAppSelector(state => state.main.infoAboutRequests)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        if (!allCardsInfo.length) dispatch(getAllCards())
+        if (!infoAboutRequests) dispatch(getInfo())
     },[])
 
 
-
+    
     const getCardsItems = () => {
-        let cardsArray : Array<any> = [];
-        for (const key in allCardsInfo) {
-            cardsArray.push(<MainContentItem cardsInfo={allCardsInfo[key]} cardSetName={key}/>)
+        let infoArr : Array<any> = [];
+        for (const key in infoAboutRequests) {
+            infoArr.push(
+                <DropDown 
+                    info={infoAboutRequests[key]} 
+                    title={key}
+                />
+            )
         }
-        return cardsArray
+        return infoArr
     }
 
     return (
-        <div>
+        <WrapperInfo>
             {getCardsItems()}
-        </div>
+        </WrapperInfo>
     )
 }
 

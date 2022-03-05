@@ -1,9 +1,9 @@
-import { GetAllCardsT } from './../../api/apiT';
+import { GetInfoT } from './../../api/apiT';
 import { GetCardT } from "../../api/apiT";
 
 export interface InitialStateT {
     cardsInfo : GetCardT
-    allCardsInfo : GetAllCardsT
+    infoAboutRequests : GetInfoT | null
     userInput : string,
     requestError : string | null
 }
