@@ -1,7 +1,7 @@
-import { getCard, getInfo } from './../thunks/mainThunk';
-import { GetCardT, GetInfoT } from './../../api/apiT';
+import { getCard, getInfo } from '../../thunks/hearthstoneThunk';
+import { GetCardT, GetInfoT } from '../../../api/apiT';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InitialStateT } from "./mainSliceT";
+import { InitialStateT } from "./hearthstoneSliceT";
 
 const initialState: InitialStateT = {
     cardsInfo: [],
@@ -10,7 +10,7 @@ const initialState: InitialStateT = {
     requestError: null
 }
 
-const mainSlice = createSlice({
+const hearthstoneSlice = createSlice({
     name: "main",
     initialState,
     reducers: {
@@ -42,5 +42,5 @@ const mainSlice = createSlice({
     }
 })
 
-export default mainSlice.reducer
-export const {setInput,setRequestError} = mainSlice.actions;
+export default hearthstoneSlice.reducer
+export const {setInput,setRequestError} = hearthstoneSlice.actions;

@@ -1,6 +1,8 @@
 
 export type GetCardT = Array<CardT>
 
+
+
 export interface GetInfoT {
     [index : string]: Array<string>
     classes: Array<string>,
@@ -22,4 +24,23 @@ export interface CardT {
     flavor:string
     race:string
     img:string
+    imgGold : string
+}
+
+export interface GetFreeGamesT {
+    current : Array<GetFreeGamesItemT>
+    upcoming : Array<GetFreeGamesItemT>
+}
+
+export interface GetFreeGamesMain {
+    freeGames : GetFreeGamesItemT
+}
+
+export interface GetFreeGamesItemT {
+    title:string,
+    id:string
+    description:string
+    effectiveDate:string
+    status:string
+    keyImages: Array<{url:string}>
 }

@@ -1,12 +1,16 @@
-import { useEffect, useRef } from "react";
 import { CardT } from "../../../api/apiT";
 import { DescriptionItem, WrapperDescription } from "../../../common/styles/description";
 import { WrapperImg } from "../../../common/styles/img";
 import { Name, WrapperName } from "../../../common/styles/nameStyles";
 import { GridWrapper, WrapperCard } from "./cardInfoStyles";
 import emptyImg  from "../../../common/img/emptyImg.png"
+import { useState } from "react";
+import Modal from "../../../common/modal/Modal";
+
 const CardInfo: React.FC<CardT> = (props) => {
     
+    const [visibleModal, setVisibleModal] = useState(false)
+
     const deleteFromStrUselessSymb = (str : string) : string => {
         //удаляем \ ,\n , <b></b> и _
         return str ? str.replace(/(\\n)|(<\/?b>)|_/g," ") : str
@@ -16,8 +20,13 @@ const CardInfo: React.FC<CardT> = (props) => {
         return value !== undefined
     }
 
+    const onClickImgHandler = () => {
+        if (imgGold) {
+            setVisibleModal(true)            
+        }
+    }
+
     const {
-        cardId,
         name,
         cardSet,
         type,
@@ -27,8 +36,8 @@ const CardInfo: React.FC<CardT> = (props) => {
         health,
         text,
         flavor,
-        race,
-        img
+        img,
+        imgGold
     } = props
 
     return (
@@ -37,7 +46,10 @@ const CardInfo: React.FC<CardT> = (props) => {
                    <Name>{name}</Name>
                </WrapperName>
            <GridWrapper>
-               <WrapperImg>
+               <WrapperImg 
+                    onClick={onClickImgHandler}
+                    isValidValue={isValidValue(imgGold)}
+                >
                    <img src={img || emptyImg}/>
                </WrapperImg>
                <WrapperDescription>
@@ -112,6 +124,7 @@ const CardInfo: React.FC<CardT> = (props) => {
                     </DescriptionItem>
                </WrapperDescription>
            </GridWrapper>
+           {visibleModal && <Modal closeModal={setVisibleModal} imgGold={imgGold}/>}
        </WrapperCard> 
     )
 }

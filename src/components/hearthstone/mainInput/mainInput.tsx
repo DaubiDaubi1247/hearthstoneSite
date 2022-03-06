@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { setInput, setRequestError } from "../../../redux/slices/mainSlice"
-import { getCard } from "../../../redux/thunks/mainThunk"
+import { setInput, setRequestError } from "../../../redux/slices/hearthstoneSlice/hearthstoneSlice"
+import { getCard } from "../../../redux/thunks/hearthstoneThunk"
 import { MainForm } from "./mainInputStyles"
 import { PropsT } from "./mainInputT"
 

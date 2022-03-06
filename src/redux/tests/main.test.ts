@@ -1,5 +1,5 @@
-import mainSlice, { setInput } from "../slices/mainSlice"
-import { InitialStateT } from "../slices/mainSliceT"
+import hearthstoneSlice, { setInput } from "../slices/hearthstoneSlice/hearthstoneSlice"
+import { InitialStateT } from "../slices/hearthstoneSlice/hearthstoneSliceT"
 
 
 // test("should return not empty string", () => {

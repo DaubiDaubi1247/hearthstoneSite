@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks/hooks"
-import { getInfo } from "../../../redux/thunks/mainThunk"
+import { getInfo } from "../../../redux/thunks/hearthstoneThunk"
 import { WrapperInfo } from "./mainContentContainerStyles"
 import DropDown from "../../../common/dropDown/DropDown"
 
 
 const MainContentContainer : React.FC = () => {
 
-    const infoAboutRequests = useAppSelector(state => state.main.infoAboutRequests)
+    const infoAboutRequests = useAppSelector(state => state.hearthstone.infoAboutRequests)
     const dispatch = useAppDispatch()
 
     useEffect(() => {

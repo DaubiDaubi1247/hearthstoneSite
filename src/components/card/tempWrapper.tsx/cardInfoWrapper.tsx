@@ -4,7 +4,7 @@ import CardInfoContainer from "../CardInfoContainer"
 
 const CardInfoWrapper : React.FC = () => {
 
-    const cardsArray = useAppSelector(state => state.main.cardsInfo)
+    const cardsArray = useAppSelector(state => state.hearthstone.cardsInfo)
     return (
         <div>
             <CardInfoContainer cardsArray={cardsArray}/>

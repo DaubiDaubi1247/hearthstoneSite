@@ -7,7 +7,7 @@ import { Wrapper } from "./cardInfoContainerStyles"
 
 const CardInfoContainer : React.FC<CardInfoMidPropsT> = ({cardsArray}) => {
     
-    const ErrorMessage : string | null = useAppSelector(state => state.main.requestError)
+    const ErrorMessage : string | null = useAppSelector(state => state.hearthstone.requestError)
 
     const getCardsArray = () => cardsArray.map((el : CardT) => <CardInfo {...el}/>)
 

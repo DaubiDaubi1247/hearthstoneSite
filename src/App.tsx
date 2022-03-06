@@ -3,19 +3,20 @@ import { Route, Routes } from 'react-router-dom';
 import { MainWrapper } from './AppStyles';
 import './AppStyles.ts';
 import HeaderContainer from './components/header/HeaderContainer';
-import MainContainer from './components/main/MainInputContainer';
+import MainContainer from './components/hearthstone/MainInputContainer';
 import CardInfoWrapper from './components/card/tempWrapper.tsx/cardInfoWrapper';
-import MainContentContainer from './components/main/mainContent/mainContenContainer';
+import MainContentContainer from './components/hearthstone/mainContent/mainContenContainer';
+import EpicGamesContainer from './components/epicGames/epicGamesContainer';
 
 function App() {
   return (
     <div className="App">
       <HeaderContainer/>
       <MainWrapper>
-        <MainContainer/>
           <Routes>
-            <Route path="/" element={<MainContentContainer/>}/>
-            <Route path="/searchCard" element={<CardInfoWrapper/>}/>
+            <Route path="/hearthstone" element={<MainContainer/>}/>
+            <Route path="/hearthstone/searchCard" element={<CardInfoWrapper/>}/>
+            <Route path="/epicGames" element={<EpicGamesContainer/>}/>
           </Routes>
       </MainWrapper>
     </div>
