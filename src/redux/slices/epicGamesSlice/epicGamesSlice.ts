@@ -17,8 +17,8 @@ const epicGamesSlice = createSlice ({
     },
     extraReducers : {
         [getFreeGame.fulfilled.type] : (state, action: PayloadAction<GetFreeGamesT>) => {
-            state.current = action.payload.current;
-            state.upcoming = action.payload.upcoming;
+            state.current = action.payload.current.reverse();
+            state.upcoming = action.payload.upcoming.reverse();
         },
         [getFreeGame.rejected.type] : (state, action: PayloadAction<string>) => {
             state.error = action.payload;

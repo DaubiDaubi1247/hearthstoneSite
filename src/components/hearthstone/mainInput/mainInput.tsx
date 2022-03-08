@@ -20,7 +20,7 @@ const MainInput : React.FC<PropsT> = ({dispatch,navigate}) => {
     const getCards = () => {
         
         dispatch(getCard(userInput))
-        navigate("/searchCard")
+        navigate("/hearthstone/searchCard")
     }
     return (
         <MainForm onSubmit={e => e.preventDefault() }>

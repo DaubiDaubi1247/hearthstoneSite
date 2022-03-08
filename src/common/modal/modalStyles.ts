@@ -21,6 +21,10 @@ export const ModalMain = styled.div`
     position: relative;
 `
 
+export const ModalImg = styled.div`
+
+`
+
 export const BtnClose = styled.button`
     position: absolute;
     background-color: #fff;

@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BtnClose, ModalMain, WrapperModal } from "./modalStyles";
+import { BtnClose, ModalImg, ModalMain, WrapperModal } from "./modalStyles";
 import { ModalPropsT } from "./modalT";
 
 
 const Modal: React.FC<ModalPropsT> = ({closeModal,imgGold}) => {
 
-    const exitFromModal = (e : any) => {
+    const exitFromModal = () => {
         closeModal(false)      
     }
     debugger
@@ -18,12 +17,13 @@ const Modal: React.FC<ModalPropsT> = ({closeModal,imgGold}) => {
             document.removeEventListener('keydown', exitFromModal)
         }
     }, [])
+    debugger
     return (
         <WrapperModal onClick={exitFromModal}>
             <ModalMain>
-                <div className="modal__video">
+                <ModalImg>
                     <img src={imgGold} alt="" />
-                </div>
+                </ModalImg>
                 <BtnClose onClick={exitFromModal} >
                     X
                 </BtnClose>
