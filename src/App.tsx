@@ -5,7 +5,6 @@ import './AppStyles.ts';
 import HeaderContainer from './components/header/HeaderContainer';
 import MainContainer from './components/hearthstone/MainInputContainer';
 import CardInfoWrapper from './components/card/tempWrapper.tsx/cardInfoWrapper';
-import MainContentContainer from './components/hearthstone/mainContent/mainContenContainer';
 import EpicGamesContainer from './components/epicGames/epicGamesContainer';
 
 function App() {

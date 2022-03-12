@@ -20,7 +20,7 @@ const epicGames = axios.create({
       }
   })
 
-const cardAPI = {
+  export const cardAPI = {
     getCardByNameOrId(name : string) {
         return hearthstone.get<GetCardT>(`/cards/search/${name}`)
     },
@@ -35,4 +35,3 @@ export const epicGamesAPI = {
     },
 }
 
-export default cardAPI

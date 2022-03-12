@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import commonSlice from "./slices/commonSlice/commonSlice";
 import epicGamesSlice from "./slices/epicGamesSlice/epicGamesSlice";
 import hearthstoneSlice from "./slices/hearthstoneSlice/hearthstoneSlice";
 
 const store = configureStore({
     reducer:{
+        common : commonSlice,
         hearthstone:hearthstoneSlice,
         epicGames : epicGamesSlice
     },

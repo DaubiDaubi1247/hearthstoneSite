@@ -5,5 +5,4 @@ export interface InitialStateT {
     cardsInfo : GetCardT
     infoAboutRequests : GetInfoT | null
     userInput : string,
-    requestError : string | null
 }

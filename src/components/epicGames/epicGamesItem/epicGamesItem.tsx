@@ -9,6 +9,7 @@ const EpicGamesItem: React.FC<GetFreeGamesItemT> = (props) => {
         description,
         effectiveDate,
         status,
+        price
     } = props
 
 
@@ -35,6 +36,26 @@ const EpicGamesItem: React.FC<GetFreeGamesItemT> = (props) => {
                 margin={false}
                 data={status}
             />
+
+            <DescriptionSpanItem
+                display="block"
+                title="Цена без скидки"
+                margin={false}
+                data={""}
+            >
+                <DescriptionSpanItem
+                    display="inline"
+                    title=""
+                    margin={false}
+                    data={price.totalPrice.originalPrice}
+                />
+                <DescriptionSpanItem
+                    display="inline"
+                    title=""
+                    margin={false}
+                    data={price.totalPrice.currencyCode}
+                />
+            </DescriptionSpanItem>
         </WrapperDescription>
     )
 }

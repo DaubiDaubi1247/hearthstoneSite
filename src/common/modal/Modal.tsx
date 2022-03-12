@@ -1,23 +1,23 @@
 import { useEffect } from "react";
+import SimpleSlider from "../descriptionTemplate/slider/Slider";
 import { BtnClose, ModalImg, ModalMain, WrapperModal } from "./modalStyles";
 import { ModalPropsT } from "./modalT";
 
 
-const Modal: React.FC<ModalPropsT> = ({closeModal,imgGold}) => {
+const Modal: React.FC<ModalPropsT> = ({ closeModal, imgGold }) => {
 
     const exitFromModal = () => {
-        closeModal(false)      
+        closeModal(false)
     }
-    debugger
+
     useEffect(() => {
         document.body.style.overflow = 'hidden'
-        document.addEventListener('keydown',exitFromModal)
+        document.addEventListener('keydown', exitFromModal)
         return () => {
             document.body.style.overflow = 'scroll'
             document.removeEventListener('keydown', exitFromModal)
         }
     }, [])
-    debugger
     return (
         <WrapperModal onClick={exitFromModal}>
             <ModalMain>

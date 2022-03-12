@@ -36,6 +36,11 @@ export interface GetFreeGamesMain {
     freeGames : GetFreeGamesItemT
 }
 
+export interface PriceItems {
+    originalPrice : string
+    currencyCode : string
+}
+
 export interface GetFreeGamesItemT {
     title:string,
     id:string
@@ -43,4 +48,5 @@ export interface GetFreeGamesItemT {
     effectiveDate:string
     status:string
     keyImages: Array<{url:string}>
+    price : {totalPrice : PriceItems}
 }

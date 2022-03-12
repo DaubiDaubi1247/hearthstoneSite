@@ -1,3 +1,4 @@
+import { imgArrayItemT } from './../descriptionTemplate/descriptionTemplateMain/descriptionTemplateT';
 import { Dispatch, SetStateAction } from "react";
 
 

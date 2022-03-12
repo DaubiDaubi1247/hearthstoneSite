@@ -13,7 +13,7 @@ const DescriptionSpanItem: React.FC<DescriptionSpanItemProps> = ({display,margin
             visible={isValidValue(data)}
         >
             <DescriptionTitle margin={margin}>
-                {title} : {children}
+                {title} {title ? ":" : ""} {children}
                 <span>
                     {data} {afterData}
                 </span>

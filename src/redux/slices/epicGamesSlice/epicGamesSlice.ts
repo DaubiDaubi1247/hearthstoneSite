@@ -6,7 +6,6 @@ import { EpicGamesIST } from './epicGamesT';
 const initialState : EpicGamesIST = {
     current : [],
     upcoming : [],
-    error : null,
 }
 
 const epicGamesSlice = createSlice ({
@@ -18,11 +17,8 @@ const epicGamesSlice = createSlice ({
     extraReducers : {
         [getFreeGame.fulfilled.type] : (state, action: PayloadAction<GetFreeGamesT>) => {
             state.current = action.payload.current.reverse();
-            state.upcoming = action.payload.upcoming.reverse();
+            state.upcoming = action.payload.upcoming;
         },
-        [getFreeGame.rejected.type] : (state, action: PayloadAction<string>) => {
-            state.error = action.payload;
-        }
     }
 })
 

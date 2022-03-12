@@ -8,7 +8,7 @@ import CardDescription from "./cardDescription/CardDescription"
 
 const CardInfoContainer : React.FC<CardInfoMidPropsT> = ({cardsArray}) => {
     
-    const ErrorMessage : string | null = useAppSelector(state => state.hearthstone.requestError)
+    const ErrorMessage : string | null = useAppSelector(state => state.common.error)
 
     const getCardsArray = () => cardsArray.map((el : CardT) => {
         return <CardInfo 

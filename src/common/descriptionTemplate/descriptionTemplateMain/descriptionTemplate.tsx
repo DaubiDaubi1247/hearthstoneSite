@@ -24,7 +24,7 @@ const TemplateInfoDescription: React.FC<DescriptionTemplateT> = (props) => {
         name,
         img,
         imgGold,
-        children
+        children,
     } = props
 
     return (
@@ -41,7 +41,7 @@ const TemplateInfoDescription: React.FC<DescriptionTemplateT> = (props) => {
                 </WrapperImg>
                 {children}
             </GridWrapper>
-            {visibleModal && <Modal closeModal={setVisibleModal} imgGold={imgGold || emptyImg} />}
+            {visibleModal && <Modal closeModal={setVisibleModal} imgGold={imgGold || emptyImg}/>}
         </WrapperCard>
     )
 }

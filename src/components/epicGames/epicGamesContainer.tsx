@@ -1,43 +1,30 @@
 import { useEffect } from "react"
-import { GetFreeGamesItemT } from "../../api/apiT"
-import TemplateInfoDescription from "../../common/descriptionTemplate/descriptionTemplateMain/descriptionTemplate"
+import WithPreloader from "../../HOC/withPreloader"
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks"
+import { setLoading } from "../../redux/slices/commonSlice/commonSlice"
 import { getFreeGame } from "../../redux/thunks/epicGamesThunk"
-import { Wrapper } from "../card/cardInfoContainerStyles"
-import EpicGamesItem from "./epicGamesItem/epicGamesItem"
+import EpicGamesMain from "./epicGames/epicGames"
 
 
-const EpicGamesContainer : React.FC = () => {
-    
-    const {current,error,upcoming} = useAppSelector(state => state.epicGames)
+
+const EpicGamesContainer: React.FC = () => {
+
+    const { current, upcoming } = useAppSelector(state => state.epicGames)
+    const loading = useAppSelector(state => state.common.loading)
     const dispatch = useAppDispatch()
+
     useEffect(() => {
         if (!current.length) {
-            dispatch(getFreeGame())            
+            dispatch(setLoading(true))
+            dispatch(getFreeGame())
         }
     }, [])
 
-
-    const ErrorMessage : string | null = useAppSelector(state => state.hearthstone.requestError)
-
-    const getCardsArray = () => current.map((el : GetFreeGamesItemT) => {
-        return <TemplateInfoDescription 
-            img={el.keyImages[0].url}
-            name={el.title}
-            imgArray={el.keyImages}
-        >
-            <EpicGamesItem {...el}/>
-        </TemplateInfoDescription>
-    })
-
+    const EpicGameWithPreloader = WithPreloader(EpicGamesMain)
     return (
-        <Wrapper>
-            {
-                current.length ?   
-                getCardsArray() : null
-            }
-        </Wrapper>
+        <EpicGameWithPreloader current={current} upcoming={upcoming} loading={loading}/>
     )
 }
+
 
 export default EpicGamesContainer
